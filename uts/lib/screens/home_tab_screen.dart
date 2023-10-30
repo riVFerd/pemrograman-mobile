@@ -48,14 +48,15 @@ class ImageCarousel extends StatelessWidget {
         autoPlay: true,
         enlargeFactor: 0.2,
       ),
-      items: [1, 2, 3, 4, 5].map((i) {
+      items: [1, 2, 3].map((i) {
         return Builder(
           builder: (BuildContext context) {
             return Container(
               width: MediaQuery.of(context).size.width,
               margin: const EdgeInsets.symmetric(horizontal: 5.0),
               decoration: BoxDecoration(
-                color: Color(0xffff8f4f - i * 100),
+                color:
+                    Color.fromARGB(255, 255 - i * 15, 70 + i * 15, 70 + i * 15),
                 borderRadius: const BorderRadius.all(
                   Radius.circular(8),
                 ),
@@ -198,7 +199,7 @@ class TopBanner extends StatelessWidget {
                 children: [
                   RoundedIcon(
                     backgroundColor: Colors.white,
-                    child: Icon(Icons.discount_outlined),
+                    child: FaIcon(FontAwesomeIcons.percent),
                   ),
                   SizedBox(width: 16),
                   RoundedIcon(
@@ -214,7 +215,14 @@ class TopBanner extends StatelessWidget {
             width: double.infinity,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
-              color: Colors.red,
+              gradient: LinearGradient(
+                begin: Alignment.bottomLeft,
+                end: Alignment.topRight,
+                colors: [
+                  Colors.red,
+                  Colors.red[900]!,
+                ],
+              ),
             ),
             child: const Padding(
               padding: EdgeInsets.all(16.0),
